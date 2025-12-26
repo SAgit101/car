@@ -1,0 +1,8 @@
+#this is my code for work of task80 ticket to create a new user
+resource "azuread_application" "sp" {
+  display_name = var.sp_name
+}
+
+resource "azuread_service_principal" "sp" {
+  application_id = azuread_application.sp.client_id
+}
